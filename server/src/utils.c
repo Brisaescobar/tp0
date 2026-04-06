@@ -5,7 +5,7 @@ t_log* logger;
 int iniciar_servidor(void)
 {
 	// Quitar esta línea cuando hayamos terminado de implementar la funcion
-	assert(!"no implementado!");
+	// assert(!"no implementado!");
 
 	int socket_servidor;
 
@@ -28,7 +28,7 @@ int iniciar_servidor(void)
 
 	// Escuchamos las conexiones entrantes
 
-	list(socket_servidor,SOMAXCONN) // cantidad MAX que admite el SO
+	list(socket_servidor,SOMAXCONN); // cantidad MAX que admite el SO
 
 	freeaddrinfo(servinfo);
 	log_trace(logger, "Listo para escuchar a mi cliente");

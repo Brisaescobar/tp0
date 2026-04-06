@@ -104,7 +104,6 @@ void leer_consola(t_log* logger)
 
 	free(leido); 
 	abort();
-
 }
 
 void paquete(int conexion)
@@ -122,10 +121,12 @@ void paquete(int conexion)
 
 	}
 
-	enviar_paquete(paquete, socket_c)
+	enviar_paquete(paquete, conexion);
 
 	// ¡No te olvides de liberar las líneas y el paquete antes de regresar!
 	
+	free(leido); 
+	eliminar_paquete(paquete);
 }
 
 void terminar_programa(int conexion, t_log* logger, t_config* config)
