@@ -51,6 +51,7 @@ int main(void)
 	conexion = crear_conexion(ip, puerto);
 
 	// Enviamos al servidor el valor de CLAVE como mensaje
+	enviar_mensaje("El valor de clave es: valor",conexion);
 
 	// Armamos y enviamos el paquete
 	paquete(conexion);
@@ -110,10 +111,18 @@ void paquete(int conexion)
 {
 	// Ahora toca lo divertido!
 	char* leido;
-	t_paquete* paquete;
+	t_paquete* paquete = crear_paquete();
 
 	// Leemos y esta vez agregamos las lineas al paquete
+	
+	while (strcmp(leido, "") =! 0) {
+		free (leido); 
+		leido = readline("> ");
+		agregar_a_paquete(paquete, leido, strlen(leido)+1);
 
+	}
+
+	enviar_paquete(paquete, socket_c)
 
 	// ¡No te olvides de liberar las líneas y el paquete antes de regresar!
 	
@@ -127,4 +136,6 @@ void terminar_programa(int conexion, t_log* logger, t_config* config)
 	  log_destroy(logger);
 
 	  config_destroy(config);
+
+	  conexion_destroy(conexion); 
 }
