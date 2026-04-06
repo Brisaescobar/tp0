@@ -103,7 +103,7 @@ void leer_consola(t_log* logger)
 	// ¡No te olvides de liberar las lineas antes de regresar!
 
 	free(leido); 
-	abort();
+	// abort();
 }
 
 void paquete(int conexion)
@@ -118,7 +118,6 @@ void paquete(int conexion)
 		free (leido); 
 		leido = readline("> ");
 		agregar_a_paquete(paquete, leido, strlen(leido)+1);
-
 	}
 
 	enviar_paquete(paquete, conexion);
