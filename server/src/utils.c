@@ -20,15 +20,15 @@ int iniciar_servidor(void)
 
 	// Creamos el socket de escucha del servidor
 	
-	int socket_servidor = socket (server_info->ai_family, server_info-> ai_socktype, server_info-> ai_flags);
+	socket_servidor = socket (servinfo->ai_family, servinfo-> ai_socktype, servinfo-> ai_protocol);
 
 	// Asociamos el socket a un puerto
 
-	bind(socket_servidor, server_info->ai_socktype, server_info->ai_flags);
+	bind(socket_servidor, servinfo->ai_addr, servinfo->ai_addrlen); // info del socket servidor 
 
 	// Escuchamos las conexiones entrantes
 
-	list(socket_servidor,SOMAXCONN); // cantidad MAX que admite el SO
+	listen(socket_servidor,SOMAXCONN); // cantidad MAX que admite el SO
 
 	freeaddrinfo(servinfo);
 	log_trace(logger, "Listo para escuchar a mi cliente");

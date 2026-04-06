@@ -114,7 +114,7 @@ void paquete(int conexion)
 
 	// Leemos y esta vez agregamos las lineas al paquete
 	
-	while (strcmp(leido, "") =! 0) {
+	while (strcmp(leido, "") != 0) {
 		free (leido); 
 		leido = readline("> ");
 		agregar_a_paquete(paquete, leido, strlen(leido)+1);
@@ -138,5 +138,5 @@ void terminar_programa(int conexion, t_log* logger, t_config* config)
 
 	  config_destroy(config);
 
-	  conexion_destroy(conexion); 
+	  liberar_conexion(conexion); // no va conexion destroy porque lo usa 
 }
