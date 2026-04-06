@@ -75,7 +75,7 @@ t_config* iniciar_config(void)
 
 	if (nuevo_config == NULL) {
 		printf("No se puedo crear el config");
-		exit(1);
+		// exit(1);
 		// podria usar abort tambien 
 	}
 
