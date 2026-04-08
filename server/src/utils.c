@@ -31,6 +31,7 @@ int iniciar_servidor(void)
 	listen(socket_servidor,SOMAXCONN); // cantidad MAX que admite el SO
 
 	freeaddrinfo(servinfo);
+	
 	log_trace(logger, "Listo para escuchar a mi cliente");
 
 	return socket_servidor;

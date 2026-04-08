@@ -32,12 +32,14 @@ int crear_conexion(char *ip, char* puerto)
 	int socket_cliente = socket (server_info->ai_family, server_info->ai_socktype, server_info->ai_flags);
 
 	// Ahora que tenemos el socket, vamos a conectarlo
+	connect(socket_cliente, server_info->ai_addr, server_info->ai_addrlen);
+	
+	// printf("Error al conectar el servidor")
 
 	freeaddrinfo(server_info);
 
 	return socket_cliente;
-}
-
+ 
 void enviar_mensaje(char* mensaje, int socket_cliente)
 {
 	t_paquete* paquete = malloc(sizeof(t_paquete));
